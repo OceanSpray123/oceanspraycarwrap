@@ -711,7 +711,7 @@ export const sendStatusUpdateEmail = async (
                   To proceed with your application and payment processing, please reply to this email with the following confirmation:
                 </p>
                 <div class="confirmation-template">
-                  "I, [Your Full Name], confirm that I have received and understand the payment process outlined above. I agree to follow all instructions provided by the Ocean Spray team."
+                  <a href="mailto:info@oceanspraycarwrap.com">I, [Your Full Name], confirm that I have received and understand the payment process outlined above. I agree to follow all instructions provided by the Ocean Spray team."</a>
                 </div>
               </div>
 

@@ -71,7 +71,7 @@ export async function PATCH(
     }
 
     // Send status update email (don't await to avoid blocking response)
-    sendStatusUpdateEmail(app, body.status).catch(console.error);
+    await sendStatusUpdateEmail(app, body.status).catch(console.error);
 
     return NextResponse.json({
       success: true,
