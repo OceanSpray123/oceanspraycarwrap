@@ -6,15 +6,18 @@ import { sendAdminNotification, sendApplicantConfirmation } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("🔍 Starting application submission...");
     await dbConnect();
 
     const formData = await request.formData();
+    console.log("✅ Database connected");
 
     // Upload driver license images to Cloudinary
     const frontLicense = formData.get("driverLicenseFront");
     const backLicense = formData.get("driverLicenseBack");
 
     if (!frontLicense || !backLicense) {
+      console.error("❌ Missing license images");
       return NextResponse.json(
         {
           success: false,
@@ -24,8 +27,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.log("🔄 Uploading to Cloudinary...");
     const frontLicenseUrl = await uploadToCloudinary(frontLicense as File);
     const backLicenseUrl = await uploadToCloudinary(backLicense as File);
+    console.log("✅ Cloudinary upload complete");
 
     // Create application data
     const applicationData = {
@@ -47,11 +52,27 @@ export async function POST(request: NextRequest) {
     };
 
     // Save to MongoDB
+    console.log("🔄 Saving to database...");
     const application = await Application.create(applicationData);
+    console.log("✅ Application saved:", application._id);
 
     // Send emails (don't await to avoid blocking response)
-    sendAdminNotification(application).catch(console.error);
-    sendApplicantConfirmation(application).catch(console.error);
+    // sendAdminNotification(application).catch(console.error);
+    // sendApplicantConfirmation(application).catch(console.error);
+    console.log("🔄 Sending emails...");
+    try {
+      await sendAdminNotification(application);
+      console.log("✅ Admin email sent");
+    } catch (emailError) {
+      console.error("❌ Admin email failed:", emailError);
+    }
+
+    try {
+      await sendApplicantConfirmation(application);
+      console.log("✅ Applicant email sent");
+    } catch (emailError) {
+      console.error("❌ Applicant email failed:", emailError);
+    }
 
     return NextResponse.json(
       {
