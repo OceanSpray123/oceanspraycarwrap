@@ -232,7 +232,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-white py-3 sm:py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center shadow-md sticky top-0 z-50">
         <img
-          src="New Ocean logo.jpg"
+          src="/new-ocean-logo.jpg"
           alt="Ocean Car Wraps Logo"
           className="h-12 sm:h-16 lg:h-20 logo-float"
         />
@@ -354,7 +354,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto">
           <div className="w-full lg:flex-1 animate-soft-zoom">
             <img
-              src="left-homepage.jpg"
+              src="/left-homepage.jpg"
               className="h-48 sm:h-64 lg:h-96 w-full object-cover rounded-xl shadow-xl"
               alt="Ocean Car Wraps Image"
             />
@@ -520,7 +520,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-col items-center justify-center p-4 sm:p-6 mb-6 sm:mb-8 w-full">
                 <img
-                  src="full-wrap.png"
+                  src="/full-wrap.png"
                   alt="Full Vehicle Wrap"
                   className="max-w-full sm:max-w-md lg:max-w-lg h-auto mb-3 sm:mb-4 rounded-lg shadow-md"
                 />
@@ -540,7 +540,7 @@ export default function Home() {
               </h2>
               <div className="flex flex-col items-center justify-center p-4 sm:p-6 mb-6 sm:mb-8 w-full">
                 <img
-                  src="car-partial.png"
+                  src="/car-partial.png"
                   alt="Partial Wraps"
                   className="max-w-full sm:max-w-md lg:max-w-lg h-auto mb-3 sm:mb-4 rounded-lg shadow-md"
                 />
@@ -632,7 +632,7 @@ export default function Home() {
           <div className="py-6 sm:py-8 px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row justify-between gap-6 sm:gap-8 lg:gap-12">
             <div className="flex justify-center sm:justify-start">
               <img
-                src="new small logo.jpg"
+                src="/new-small-logo.jpg"
                 alt="Ocean Spray Logo"
                 className="h-16 sm:h-20 rounded-2xl"
               />

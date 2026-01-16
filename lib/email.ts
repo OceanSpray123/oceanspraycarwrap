@@ -12,6 +12,8 @@ const transporter = nodemailer.createTransport({
   tls: {
     rejectUnauthorized: true,
   },
+  debug: true,
+  logger: true,
 } as TransportOptions);
 
 // Verify transporter configuration
